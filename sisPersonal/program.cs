@@ -12,6 +12,8 @@ class Program
         double GastadoSalarios = 0;
         int ProximoAJubilarse=100;
         string NombreProximoJubilado="";
+        int años=0;
+        int antiguedad=0;
         for (int i = 0; i < 3; i++)
         {
             Console.WriteLine("Empleado:");
@@ -30,17 +32,21 @@ class Program
                 Console.WriteLine($"El empleado tiene una antiguedad de: {emp[i].CalcularAntiguedad()} años ");
             }
             Console.WriteLine($"La edad del empleado es:{emp[i].edadEmpleado()}años");
-            Console.WriteLine($"Le falta para jubilarce:{emp[i].TiempoParaJubilarse()}años");
+            Console.WriteLine($"Le falta para jubilarse:{emp[i].TiempoParaJubilarse()}años");
             Console.WriteLine($"El salario final del empleado {emp[i].Nombre} es de ${emp[i].Salario()}");
             double salario = emp[i].Salario();
             GastadoSalarios += salario;
             if (ProximoAJubilarse > emp[i].TiempoParaJubilarse())
             {
                 ProximoAJubilarse = emp[i].TiempoParaJubilarse();
-                NombreProximoJubilado = emp[i].Nombre+" "+emp[i].Apellido;
+                NombreProximoJubilado = emp[i].Nombre + " " + emp[i].Apellido;
+                años = emp[i].TiempoParaJubilarse();
+                antiguedad = emp[i].CalcularAntiguedad();
             }
         }
         Console.WriteLine($"El total gastado de salarios en la empresa es de ${GastadoSalarios}");
-        Console.WriteLine($"El empleado que esta mas proximo a jubilarse es {NombreProximoJubilado}");
+        Console.WriteLine($"El empleado que esta mas proximo a jubilarse es {NombreProximoJubilado} cuya antiguedad es {antiguedad} años y le falta la cantidad de {años} años para jubilarse");
+
+        
     }
 }
