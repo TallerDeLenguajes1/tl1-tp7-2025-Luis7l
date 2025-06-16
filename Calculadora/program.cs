@@ -59,7 +59,7 @@ class Program
             }
         } while (opcion != 6);
     }
-
+    
     static double PedirNumero(string mensaje)
     {
         double valor;
